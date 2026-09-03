@@ -1,0 +1,10 @@
+{
+  "split": "test",
+  "synthetic": false,
+  "seed": 42,
+  "rows": {
+    "val": 7969,
+    "test": 7969
+  },
+  "total_time_s": 25.0
+}

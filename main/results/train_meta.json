@@ -1,0 +1,8 @@
+{
+  "gate_params": {
+    "gate_agreement_threshold": 0.3,
+    "gate_disagreement_threshold": 0.15
+  },
+  "train": 31923,
+  "val": 7969
+}

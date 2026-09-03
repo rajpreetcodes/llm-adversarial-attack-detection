@@ -1,0 +1,32 @@
+name: eval
+
+# Nightly benchmark on the validation split, to catch silent regressions.
+# Phase for the eval harness owns this job; it is a stub until then.
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  nightly-eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Set up Python 3.11
+        run: uv python install 3.11
+
+      - name: Create virtual environment
+        run: uv venv --python 3.11
+
+      - name: Install CPU-only torch first
+        run: uv pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Install project
+        run: uv pip install -e ".[dev]"
+
+      - name: Run eval in synthetic mode (stub)
+        run: echo "Eval harness not implemented yet; will run: python -m dgad.eval.runner --synthetic"

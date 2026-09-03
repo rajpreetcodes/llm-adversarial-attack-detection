@@ -1,0 +1,67 @@
+2026-08-31 18:19:48,793 INFO: Val=7950  Test=7950
+2026-08-31 18:19:55,550 INFO: Loading embedder: sentence-transformers/all-MiniLM-L6-v2
+2026-08-31 18:19:55,554 INFO: No device provided, using cpu
+2026-08-31 18:19:55,825 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-31 18:19:55,841 INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-08-31 18:19:56,067 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-31 18:19:56,083 INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-08-31 18:19:56,083 INFO: Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-08-31 18:19:56,290 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-31 18:19:56,306 INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-08-31 18:19:56,534 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-08-31 18:19:56,547 INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
+2026-08-31 18:19:56,774 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-31 18:19:56,790 INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-08-31 18:19:56,998 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-31 18:19:57,020 INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-08-31 18:19:57,231 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-08-31 18:19:57,455 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-31 18:19:57,471 INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 6021.60it/s]
+2026-08-31 18:19:57,861 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-08-31 18:19:58,082 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-08-31 18:19:58,301 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-08-31 18:19:58,531 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-08-31 18:19:58,752 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-31 18:19:58,768 INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-08-31 18:19:59,057 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-31 18:19:59,077 INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-08-31 18:19:59,352 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-31 18:19:59,368 INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-08-31 18:19:59,592 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-31 18:19:59,612 INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-08-31 18:19:59,839 INFO: HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-08-31 18:20:00,063 INFO: HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-08-31 18:20:00,351 INFO: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-31 18:20:00,364 INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-08-31 18:20:00,587 INFO: HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-08-31 18:20:00,589 INFO: Embedder loaded in 11.9s
+2026-08-31 18:20:00,589 INFO: Scoring Channel A (features only)...
+2026-08-31 18:20:01,579 INFO:   Ch A done in 1.0s
+2026-08-31 18:20:01,579 INFO: Scoring Channel B (embeddings + LR)...
+2026-08-31 18:24:17,576 INFO:   Ch B done in 256.0s
+2026-08-31 18:24:17,576 INFO: Scoring Channel E (offset embeddings)...
+2026-08-31 18:32:17,504 INFO:   Ch E done in 479.9s
+2026-08-31 18:32:17,504 INFO: All channels scored in 748.8s
+2026-08-31 18:32:22,887 INFO:   channel_a_only           AUC=0.5946  F1=0.7086  FPR=0.6547  Prec=0.5984  Rec=0.8687
+2026-08-31 18:32:29,685 INFO:   channel_b_only           AUC=0.8603  F1=0.7693  FPR=0.1920  Prec=0.8106  Rec=0.7320
+2026-08-31 18:32:35,889 INFO:   naive_mean_fusion        AUC=0.8501  F1=0.7656  FPR=0.1933  Prec=0.8085  Rec=0.7270
+2026-08-31 18:32:42,301 INFO:   naive_max_fusion         AUC=0.8279  F1=0.7559  FPR=0.1674  Prec=0.8240  Rec=0.6982
+2026-08-31 18:32:48,970 INFO:   dgad_no_escalation       AUC=0.8013  F1=0.6999  FPR=0.1885  Prec=0.7893  Rec=0.6288
+2026-08-31 18:32:55,017 INFO:   dgad_offset              AUC=0.7443  F1=0.6590  FPR=0.1845  Prec=0.7769  Rec=0.5722
+2026-08-31 18:33:01,442 INFO:   dgad_full                AUC=0.7443  F1=0.6590  FPR=0.1845  Prec=0.7769  Rec=0.5722
+
+==========================================================================================
+DGAD ABLATION RESULTS (REAL DATA)
+==========================================================================================
+            config  threshold  roc_auc   pr_auc  accuracy  precision   recall       f1      fpr      fnr  roc_auc_ci_lo  roc_auc_ci_hi    n
+    channel_a_only   0.461700 0.594556 0.582976  0.622138   0.598362 0.868728 0.708632 0.654740 0.131272       0.581702       0.606478 7950
+    channel_b_only   0.596714 0.860325 0.870967  0.767799   0.810640 0.731986 0.769308 0.191989 0.268014       0.852785       0.868238 7950
+ naive_mean_fusion   0.574085 0.850114 0.848983  0.764528   0.808516 0.726992 0.765590 0.193324 0.273008       0.841860       0.858451 7950
+  naive_max_fusion   0.642584 0.827937 0.854556  0.761509   0.824025 0.698216 0.755922 0.167423 0.301784       0.818779       0.836399 7950
+dgad_no_escalation   0.574085 0.801274 0.809766  0.714843   0.789254 0.628775 0.699934 0.188518 0.371225       0.791743       0.810374 7950
+       dgad_offset   0.560543 0.744251 0.764554  0.686792   0.776881 0.572176 0.658998 0.184513 0.427824       0.733480       0.754517 7950
+         dgad_full   0.560543 0.744251 0.764554  0.686792   0.776881 0.572176 0.658998 0.184513 0.427824       0.733480       0.754517 7950
+
+Total time: 792.8s
+Results saved to: L:\Sem 7\Capstone Project\main\results/

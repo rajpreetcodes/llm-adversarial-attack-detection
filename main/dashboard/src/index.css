@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Utilitarian motion: utility only, 150-300ms, transform/opacity.
+   Full static fallback under prefers-reduced-motion. */
+@keyframes dgad-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  animation: dgad-fade-up 220ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { animation: none; }
+  * { transition: none !important; }
+}
+
+body {
+  background: #FAFAF9;
+  color: #1C1917;
+}

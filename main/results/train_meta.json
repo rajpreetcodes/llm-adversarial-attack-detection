@@ -1,0 +1,61 @@
+{
+  "gate_params": {
+    "gate_t_low": 0.199816047538945,
+    "gate_t_high": 0.9302857225639665,
+    "gate_t_d": 0.45259666799627274
+  },
+  "seed": 42,
+  "train": 32077,
+  "val": 8007,
+  "training_rows_per_channel": {
+    "statistical": 3000,
+    "semantic": 3000
+  },
+  "channel_a_mode": "features",
+  "channel_b_embedder": "sentence-transformers/all-MiniLM-L6-v2",
+  "calibration_method": "platt",
+  "calibration": {
+    "statistical": {
+      "ece_before": 0.045112385427634655,
+      "ece_after": 0.06644930875667082
+    },
+    "semantic": {
+      "ece_before": 0.04592271674122008,
+      "ece_after": 0.01780921901383885
+    },
+    "offset": {
+      "ece_before": 0.1969350696251418,
+      "ece_after": 0.0005644676725624167
+    }
+  },
+  "dataset_funnel": {
+    "total_rows": 93211,
+    "after_empty_removal": 93211,
+    "after_short_removal": 93080,
+    "after_truncation": 93080,
+    "after_dedup": 53428,
+    "final": 53428,
+    "after_quality_filter": 93080
+  },
+  "source_counts": {
+    "wildguardmix": 28557,
+    "wildjailbreak": 1327,
+    "orbench": 794,
+    "deepset_injections": 330,
+    "advbench": 307,
+    "xstest": 271,
+    "notinject": 154,
+    "harmbench": 120,
+    "jbb_behaviors": 116,
+    "bipia": 63,
+    "injecagent": 38
+  },
+  "family_counts": {
+    "none": 15180,
+    "gcg_optimised": 8321,
+    "jailbreak_roleplay": 8270,
+    "injection_direct": 161,
+    "obfuscation": 120,
+    "injection_indirect": 25
+  }
+}

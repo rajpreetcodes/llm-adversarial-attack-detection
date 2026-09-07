@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Secrets (never commit)
+.env
+
+# Data (never commit datasets; data/README.md documents sources)
+data/raw/
+data/interim/
+data/processed/
+
+# Local audit database
+*.db
+*.sqlite3
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Node dashboard
+dashboard/node_modules/
+dashboard/dist/

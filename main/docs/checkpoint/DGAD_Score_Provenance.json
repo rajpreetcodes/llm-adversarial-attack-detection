@@ -1,0 +1,154 @@
+[
+  {
+    "file": "scores_channel_a_only.csv",
+    "rows": 7950,
+    "sources": {
+      "wildguardmix": 7140,
+      "wildjailbreak": 331,
+      "orbench": 197,
+      "deepset_injections": 81,
+      "advbench": 76,
+      "xstest": 67,
+      "harmbench": 30,
+      "jbb_behaviors": 28
+    },
+    "auc_recomputed": 0.5945555310370229,
+    "judge_calls": 0
+  },
+  {
+    "file": "scores_channel_b_only.csv",
+    "rows": 7950,
+    "sources": {
+      "wildguardmix": 7140,
+      "wildjailbreak": 331,
+      "orbench": 197,
+      "deepset_injections": 81,
+      "advbench": 76,
+      "xstest": 67,
+      "harmbench": 30,
+      "jbb_behaviors": 28
+    },
+    "auc_recomputed": 0.8603249675746814,
+    "judge_calls": 0
+  },
+  {
+    "file": "scores_dgad_escalate_judge.csv",
+    "rows": 34,
+    "sources": {
+      "synthetic_benign": 6,
+      "synthetic_gcg": 6,
+      "synthetic_injection": 6,
+      "synthetic_indirect": 5,
+      "synthetic_notinject": 4,
+      "synthetic_roleplay": 4,
+      "synthetic_obfuscation": 3
+    },
+    "auc_recomputed": 0.9916666666666667,
+    "judge_calls": 0
+  },
+  {
+    "file": "scores_dgad_full.csv",
+    "rows": 34,
+    "sources": {
+      "synthetic_benign": 6,
+      "synthetic_gcg": 6,
+      "synthetic_injection": 6,
+      "synthetic_indirect": 5,
+      "synthetic_notinject": 4,
+      "synthetic_roleplay": 4,
+      "synthetic_obfuscation": 3
+    },
+    "auc_recomputed": 1.0,
+    "judge_calls": 0
+  },
+  {
+    "file": "scores_dgad_full_hardened.csv",
+    "rows": 34,
+    "sources": {
+      "synthetic_benign": 6,
+      "synthetic_gcg": 6,
+      "synthetic_injection": 6,
+      "synthetic_indirect": 5,
+      "synthetic_notinject": 4,
+      "synthetic_roleplay": 4,
+      "synthetic_obfuscation": 3
+    },
+    "auc_recomputed": 1.0,
+    "judge_calls": 0
+  },
+  {
+    "file": "scores_dgad_no_escalation.csv",
+    "rows": 34,
+    "sources": {
+      "synthetic_benign": 6,
+      "synthetic_gcg": 6,
+      "synthetic_injection": 6,
+      "synthetic_indirect": 5,
+      "synthetic_notinject": 4,
+      "synthetic_roleplay": 4,
+      "synthetic_obfuscation": 3
+    },
+    "auc_recomputed": 0.9916666666666667,
+    "judge_calls": 0
+  },
+  {
+    "file": "scores_dgad_offset_judge.csv",
+    "rows": 34,
+    "sources": {
+      "synthetic_benign": 6,
+      "synthetic_gcg": 6,
+      "synthetic_injection": 6,
+      "synthetic_indirect": 5,
+      "synthetic_notinject": 4,
+      "synthetic_roleplay": 4,
+      "synthetic_obfuscation": 3
+    },
+    "auc_recomputed": 1.0,
+    "judge_calls": 0
+  },
+  {
+    "file": "scores_judge_on_everything.csv",
+    "rows": 34,
+    "sources": {
+      "synthetic_benign": 6,
+      "synthetic_gcg": 6,
+      "synthetic_injection": 6,
+      "synthetic_indirect": 5,
+      "synthetic_notinject": 4,
+      "synthetic_roleplay": 4,
+      "synthetic_obfuscation": 3
+    },
+    "auc_recomputed": 1.0,
+    "judge_calls": 34
+  },
+  {
+    "file": "scores_naive_max_fusion.csv",
+    "rows": 34,
+    "sources": {
+      "synthetic_benign": 6,
+      "synthetic_gcg": 6,
+      "synthetic_injection": 6,
+      "synthetic_indirect": 5,
+      "synthetic_notinject": 4,
+      "synthetic_roleplay": 4,
+      "synthetic_obfuscation": 3
+    },
+    "auc_recomputed": 0.9916666666666667,
+    "judge_calls": 0
+  },
+  {
+    "file": "scores_naive_mean_fusion.csv",
+    "rows": 34,
+    "sources": {
+      "synthetic_benign": 6,
+      "synthetic_gcg": 6,
+      "synthetic_injection": 6,
+      "synthetic_indirect": 5,
+      "synthetic_notinject": 4,
+      "synthetic_roleplay": 4,
+      "synthetic_obfuscation": 3
+    },
+    "auc_recomputed": 0.9916666666666667,
+    "judge_calls": 0
+  }
+]

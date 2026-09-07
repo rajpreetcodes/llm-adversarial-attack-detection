@@ -1,0 +1,50 @@
+# DGAD Viva Cheat Sheet
+
+## 30-second pitch
+
+DGAD is a proposed black-box security layer for prompts sent to an LLM. Its contribution is an evaluation of **disagreement-gated routing**: a cheap statistical detector and a cheap semantic detector handle clear cases, while contested cases are escalated to stronger verifiers. The research question is whether this policy improves the accuracy, false-positive, latency, and cost trade-off over single detectors and ordinary score fusion. This is a hypothesis to test, not a proven novelty or performance claim. The supplied reference package contains plans and prose, not the implementation evidence needed to reproduce the headline metrics; the separate repository must be evaluated independently.
+
+## Three hard mentor questions
+
+### 1. What exactly is novel if every component already exists?
+
+The defensible claim is narrow: DGAD evaluates a particular control policy in this application domain. It calibrates heterogeneous cheap detectors, treats their disagreement as a routing event, and sends only contested prompts to methodologically different verifiers. The detector components, selective prediction, cascades, uncertainty routing, and even disagreement-based escalation all have prior art. Therefore we should say **“our tested system design and empirical comparison”**, not “the first framework ever to use disagreement routing.” Novelty must be demonstrated against single-channel, naive-fusion, and always-judge baselines on a locked holdout.
+
+### 2. Do the supplied numbers prove that DGAD works?
+
+No. The claims of **0.942 ROC-AUC, 16.4% escalation, 1.8% FPR, 94 tests, and under 20 ms latency** are not substantiated by the three reference documents with raw predictions, labels, environment details, test logs, or timing methodology. A repository inspection found a committed cached ablation file in which `dgad_full` has ROC-AUC **0.7438029233** and `channel_b_only` has **0.8580390298**; `run_meta.json` records `synthetic: false` with seed 42, and Channel A is recorded in feature mode with GPT-2 disabled. That result is itself incomplete: `eval_step2.py` maps `dgad_full` to the offset variant, does not exercise Channels C/D, and assigns escalated cases a score of 0.5. The saved gate parameter names also do not match the runtime settings names, so they appear to be ignored in favour of defaults. These artifacts were inspected, not independently rerun here. Until a clean reproduction is performed, the correct viva phrasing is: “The headline numbers are provisional; the committed cached ablation is not a full-pipeline evaluation and does not establish an improvement over Channel B.”
+
+### 3. Why should disagreement identify attacks rather than merely unusual benign prompts?
+
+It should not be assumed to do so. Statistical and semantic channels may disagree on a clever attack, but also on harmless technical text, quoted attack vocabulary, code, or unfamiliar phrasing. DGAD uses disagreement only to allocate more scrutiny; it is not itself a maliciousness label. The evaluation must report the conditional attack rate inside the disagreement set, over-defence on NotInject, false agreement by attack family, calibration error, and the AUC-versus-escalation curve. If both cheap channels share a blind spot, the gate will confidently miss the attack, which is why held-out attack families and adaptive false-agreement searches are essential.
+
+## Literature matrix
+
+| Work | Primary-source finding | Relevance to DGAD | Boundary or correction |
+|---|---|---|---|
+| Zou et al., *Universal and Transferable Adversarial Attacks on Aligned Language Models* (2023) | Introduces Greedy Coordinate Gradient search for adversarial suffixes and reports transfer from white-box surrogate optimization to open and public-interface models. [Paper](https://arxiv.org/abs/2307.15043) · [official code](https://github.com/llm-attacks/llm-attacks) | Motivates a local statistical signal for low-fluency optimized suffixes and transfer-aware evaluation. | GCG is an attack, not a detector. Transfer results do not show that black-box deployment is universally vulnerable or that perplexity detects every GCG variant. |
+| Perez and Ribeiro, *Ignore Previous Prompt* (2022) | Presents PromptInject and studies simple handcrafted attacks against GPT-3, specifically goal hijacking and prompt leaking. [Paper](https://arxiv.org/abs/2211.09527) · [official code](https://github.com/agencyenterprise/PromptInject) | Establishes direct prompt manipulation as a concrete threat and supplies terminology and attack patterns. | The paper does **not by itself establish indirect injection through web pages, emails, or retrieved documents**. Cite later indirect-injection work for that claim. “First formally characterised” is also too absolute. |
+| Liu et al., *AutoDAN* (2023) | Uses a hierarchical genetic algorithm to generate more readable, stealthy jailbreak prompts and evaluates transfer and resistance to perplexity-based detection. [Paper](https://arxiv.org/abs/2310.04451) · [official code](https://github.com/SheltonLiu-N/AutoDAN) | Supports the need for a semantic channel because fluency weakens a perplexity-only defense. | Do not claim that a semantic classifier necessarily “catches AutoDAN” without family-held-out results. The paper supplies the attack and its evaluation, not validation of DGAD. |
+| Jain et al., *Baseline Defenses for Adversarial Attacks Against Aligned Language Models* (2023) | Studies baseline transformations and detection defenses, including perplexity filtering, against adversarial suffix attacks. [Paper](https://arxiv.org/abs/2309.00614) · [official code](https://github.com/neelsjain/baseline-defenses) | Provides an appropriate Channel A baseline and demonstrates why attack evaluation must include adaptive responses to defenses. | Calling this solely a “windowed-perplexity paper” understates its scope. Verify DGAD’s exact sliding-window implementation against its own specification rather than attributing every detail to Jain et al. |
+| Li and Liu, *InjecGuard* (2024) | Hao Li and Xiaogeng Liu introduce the 339-example NotInject benign trigger-word benchmark and the MOF training strategy to reduce over-defence; they report strong benchmark performance. [Paper](https://arxiv.org/abs/2410.22770) · [official code](https://github.com/SaFoLab-WISC/InjecGuard) | Supplies a learned-guard baseline and a targeted test of false positives on benign prompts containing attack vocabulary. | Correct authors are **Hao Li and Xiaogeng Liu**, not an unspecified “Li 2024.” Its reported performance is the authors’ result and does not establish DGAD’s latency or accuracy. |
+| Chao et al., *Jailbreaking Black Box Large Language Models in Twenty Queries* (PAIR, 2023) | PAIR uses an attacker LLM to iteratively refine semantic jailbreaks against a target with black-box access and often succeeds in fewer than twenty queries. [Paper](https://arxiv.org/abs/2310.08419) · [official code](https://github.com/patrickrchao/JailbreakingLLMs) | Adds a fluent black-box attack family that differs from GCG and is suitable for family-level robustness testing. | “Twenty queries” is an empirical characterization (“often fewer”), not a guaranteed upper bound. PAIR is an attack-generation baseline, not a detector or disagreement router. |
+
+## Evidence status for headline claims
+
+| Claim | What would substantiate it | Current audit status |
+|---|---|---|
+| ROC-AUC 0.942 | Locked real-data holdout, raw labels and scores, split provenance, confidence interval, bootstrap comparison with Channel B and naive fusion | **Unverified.** The inspected committed cached ablation (`synthetic: false`) reports 0.7438 for its `dgad_full` label and 0.8580 for Channel B, but the former is an incomplete gate/offset evaluation: it omits C/D and scores escalations as 0.5. It therefore contradicts the headline while also failing to measure the claimed full pipeline. |
+| Escalation 16.4% | Exact gate thresholds, count of escalated samples divided by all eligible samples, and an escalation-versus-quality curve | **Unverified.** A percentage alone does not show whether contested cases were routed correctly. |
+| FPR 1.8% | Confusion matrix at the declared operating threshold, benign-set composition, NotInject-specific FPR, and confidence interval | **Unverified.** Overall FPR can conceal severe over-defence on trigger-word prompts. |
+| 94 tests | Collected test list and clean test-run log tied to a commit; coverage should be reported separately | **Not verified in this audit.** Test count measures engineering checks, not detection validity. |
+| Under 20 ms | Defined hardware, warm-up, batch size, cache state, local-versus-API path, p50/p95/p99, and whether escalated requests are included | **Unverified.** A fast-path average cannot represent end-to-end latency when an LLM judge is invoked. |
+
+## Safe novelty language
+
+Use: “We evaluate whether calibrated disagreement between heterogeneous prompt detectors is useful for selectively routing contested inputs to stronger verifiers, and compare that policy with single detectors, naive fusion, and always-on verification.”
+
+Avoid: “No existing framework uses disagreement routing,” “DGAD is the first,” or “DGAD wins.” A bounded search cannot establish a universal negative, and recent systems outside prompt security also use disagreement for escalation. The strongest defensible contribution is an explicit, reproducible evaluation in adversarial-input detection, conditional on the eventual results.
+
+## Audit caveat
+
+The repository was subsequently cloned and the checkpoint path was reproduced locally. The authenticated build produced 53,428 deduplicated rows with zero normalized cross-split duplicates. Channel B reached ROC-AUC 0.8604 (95% bootstrap CI 0.8529–0.8685) on 8,007 test examples; its NotInject FPR was 39.47% on 38 controls. All 100 Python tests, mypy, and the dashboard production build passed. Say plainly that Channel A is still feature-only and that a full real C/D benchmark and final holdout run remain pending.
